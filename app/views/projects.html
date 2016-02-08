@@ -1,0 +1,12 @@
+<h1>List of Projects</h1>
+<ul ng-repeat="project in data">
+  <li ng-repeat="(key, val) in project" ng-if="key!='resources'">
+    {{key}}: {{val}}
+    <li ng-repeat="resources in project.resources">
+      {{resources}}
+    </li>
+  </li>
+</ul>
+<hr/>
+<a ui-sref=".resources">Show Resources</a>
+<div ui-view></div>
