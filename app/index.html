@@ -5,28 +5,14 @@
 </head>
 
 <body class="container">
-  <p><i>Best viewed in pop-out mode to see location changes. Click blue button on the right.</i></p>
 
-  <div class="navbar">
-    <div class="navbar-inner">
-      <a class="brand" href="#">Quick Start</a>
-      <ul class="nav">
-        <li><a ui-sref="route1">Route 1</a></li>
-        <li><a ui-sref="route2">Route 2</a></li>
-      </ul>
-    </div>
-  </div>
+  <li><a ui-sref="route1">Route 1</a></li>
+  <li><a ui-sref="route2">Route 2</a></li>
 
-  <div class="row">
-    <div class="span12">
-      <div class="well" ui-view></div>
-    </div>
-  </div>
+  <div ui-view></div>
 
-  <!-- Angular -->
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.js"></script>
-  <!-- UI-Router -->
-  <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="app.js"></script>
 
 </body>
