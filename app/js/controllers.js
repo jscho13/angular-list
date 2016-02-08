@@ -3,7 +3,7 @@
 /* Controllers */
 var listControllers = angular.module('listControllers', []);
 
-listControllers.controller('ProjectCtrl', ['$scope',
+listControllers.controller('DataCtrl', ['$scope',
   function($scope) {
     $scope.data = [
       {"Project": "Show Three Lists",

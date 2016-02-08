@@ -1,4 +1,16 @@
-<h1>Deadlines</h1>
-<hr/>
-<a ui-sref=".resources">Show Resources</a>
+<a ui-sref=".resources">Filter by Resource Count</a>
 <div ui-view></div>
+<h1>List of Deadlines</h1>
+<ul ng-repeat="deadlines in data">
+  <li ng-repeat="(key, val) in deadlines" ng-if="key == 'Due'">
+    {{key}}: {{val}}
+  </li>
+  <li ng-repeat="(key, val) in deadlines" ng-if="key != 'Resources' && key != 'Due'">
+    {{key}}: {{val}}
+  </li>
+  <li ng-repeat="resources in deadlines.Resources">
+    Resource:
+    {{resources}}
+  </li>
+</ul>
+<hr/>

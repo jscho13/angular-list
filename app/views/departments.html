@@ -1,4 +1,16 @@
-<h1>Departments</h1>
-<hr/>
-<a ui-sref=".resources">Show Resources</a>
+<a ui-sref=".resources">Filter by Resource Count</a>
 <div ui-view></div>
+<h1>List of Departments</h1>
+<ul ng-repeat="departments in data">
+  <li ng-repeat="(key, val) in departments" ng-if="key == 'Dept'">
+    {{key}}: {{val}}
+  </li>
+  <li ng-repeat="(key, val) in departments" ng-if="key != 'Resources' && key != 'Dept'">
+    {{key}}: {{val}}
+  </li>
+  <li ng-repeat="resources in departments.Resources">
+    Resource:
+    {{resources}}
+  </li>
+</ul>
+<hr/>
