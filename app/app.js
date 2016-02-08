@@ -1,4 +1,4 @@
-var myapp = angular.module('myapp', ["ui.router"])
+var myapp = angular.module('myApp', ["ui.router"])
 myapp.config(function($stateProvider, $urlRouterProvider){
 
   // For any unmatched url, send to /route1
@@ -7,11 +7,11 @@ myapp.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
     .state('route1', {
         url: "/route1",
-        templateUrl: "partials/route1.html"
+        templateUrl: "views/route1.html"
     })
       .state('route1.list', {
           url: "/list",
-          templateUrl: "partials/route1.list.html",
+          templateUrl: "views/route1.list.html",
           controller: function($scope){
             $scope.items = ["A", "List", "Of", "Items"];
           }
@@ -19,11 +19,11 @@ myapp.config(function($stateProvider, $urlRouterProvider){
 
     .state('route2', {
         url: "/route2",
-        templateUrl: "partials/route2.html"
+        templateUrl: "views/route2.html"
     })
       .state('route2.list', {
           url: "/list",
-          templateUrl: "partials/route2.list.html",
+          templateUrl: "views/route2.list.html",
           controller: function($scope){
             $scope.things = ["A", "Set", "Of", "Things"];
           }
