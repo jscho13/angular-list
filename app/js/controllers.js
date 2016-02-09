@@ -1,10 +1,10 @@
 'use strict';
 
 /* Controllers */
-var listControllers = angular.module('listControllers', []);
+var listControllers = angular.module('listControllers', ['projects']);
 
-listControllers.controller('DataCtrl', ['$scope',
-  function($scope) {
+listControllers.controller('DataCtrl', ['$scope', 'projectViewer'
+  function($scope, projectViewer) {
 
     // Define scope data
     $scope.data = [
