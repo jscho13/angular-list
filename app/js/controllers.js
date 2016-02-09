@@ -5,6 +5,8 @@ var listControllers = angular.module('listControllers', []);
 
 listControllers.controller('DataCtrl', ['$scope',
   function($scope) {
+
+    // Define scope data
     $scope.data = [
       {"Project": "Show Three Lists",
        "Due": "January 01, 2016 12:00:00",
@@ -27,4 +29,14 @@ listControllers.controller('DataCtrl', ['$scope',
         "Dept": "Embedded",
          "Resources": ["Kirk Middleton"]},
     ];
+
+    // Add a Item to the list
+   $scope.addResource = function(selectedProject, resourceName) {
+     var index = _.findIndex($scope.data, selectedProject);
+     $scope.data[index].Resources.push(resourceName);
+
+     // Clear input fields after push
+     $scope.resourceName = "";
+   };
+
   }]);
