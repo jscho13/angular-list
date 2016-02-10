@@ -2,10 +2,7 @@
 <div ui-view></div>
 <h1>List of Projects</h1>
 <ul ng-repeat="projects in data">
-  <li ng-repeat="(key, val) in projects" ng-if="key == 'Projects'">
-    {{key}}: {{val}}
-  </li>
-  <li ng-repeat="(key, val) in projects" ng-if="key != 'Resources' && key != 'Projects'">
+  <li ng-repeat="(key, val) in projects" ng-if="key != 'Resources'">
     {{key}}: {{val}}
   </li>
   <li ng-repeat="resources in projects.Resources">
