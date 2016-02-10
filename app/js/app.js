@@ -16,34 +16,34 @@ listApp.config(function($stateProvider, $urlRouterProvider){
     .state('projects', {
         url: "/projects",
         templateUrl: "views/projects.html",
-        controller: 'DataCtrl'
+        controller: 'ProjectCtrl'
     })
       .state('projects.resources', {
           url: "/resources",
           templateUrl: "views/projects.resources.html",
-          controller: 'DataCtrl'
+          controller: 'ProjectCtrl'
       })
 
     .state('departments', {
         url: "/departments",
         templateUrl: "views/departments.html",
-        controller: 'DataCtrl'
+        controller: 'ProjectCtrl'
     })
       .state('departments.resources', {
           url: "/resources",
           templateUrl: "views/departments.resources.html",
-          controller: 'DataCtrl'
+          controller: 'ProjectCtrl'
       })
 
     .state('deadlines', {
         url: "/deadlines",
         templateUrl: "views/deadlines.html",
-        controller: 'DataCtrl'
+        controller: 'ProjectCtrl'
     })
       .state('deadlines.resources', {
           url: "/resources",
           templateUrl: "views/deadlines.resources.html",
-          controller: 'DataCtrl'
+          controller: 'ProjectCtrl'
       })
 
     .state('resources', {
