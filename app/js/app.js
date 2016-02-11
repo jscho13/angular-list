@@ -4,7 +4,8 @@
 
 var listApp = angular.module('listApp', [
   'ui.router',
-  'listControllers'
+  'listControllers',
+  'ngResource'
 ]);
 
 listApp.config(function($stateProvider, $urlRouterProvider){
@@ -18,6 +19,11 @@ listApp.config(function($stateProvider, $urlRouterProvider){
         templateUrl: "views/projects.html",
         controller: 'ProjectCtrl'
     })
+      .state('projects.id', {
+          url: "/:id",
+          templateUrl: "views/projects.id.html",
+          controller: 'ProjectViewCtrl'
+      })
       .state('projects.resources', {
           url: "/resources",
           templateUrl: "views/projects.resources.html",

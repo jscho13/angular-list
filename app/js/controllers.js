@@ -3,15 +3,13 @@
 /* Controllers */
 var listControllers = angular.module('listControllers', ['dataModule']);
 
-listControllers.controller('ProjectCtrl', ['$scope', 'projectViewer',
-  function($scope, projectViewer) {
+listControllers.controller('ProjectCtrl', ['$scope', 'dataViewer',
+  function($scope, dataViewer) {
 
-    // Define scope
-    $scope.data = projectViewer.projectView();
+    $scope.data = dataViewer.projectView(data);
 
-    // Add a Item to the list
-   $scope.addResource = function(selectedProject, resourceName) {
-     var index = _.findIndex($scope.data, selectedProject);
-     $scope.data[index].Resources.push(resourceName);
-   };
+    $scope.addResource = function(selectedProject, resourceName) {
+      var index = _.findIndex($scope.data, selectedProject);
+      $scope.data[index].Resources.push(resourceName);
+    };
 }]);
