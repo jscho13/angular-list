@@ -2,7 +2,8 @@
 <div ui-view></div>
 <h1>List of Projects</h1>
 <ul ng-repeat="projects in data">
-  <li ng-repeat="(key, val) in projects" ng-if="key != 'Resources'">
+  <a ui-sref="projects.id({id:projects.id})">{{projects.id}}</a>
+  <li ng-repeat="(key, val) in projects" ng-if="key != 'Resources' && key!= 'id'">
     {{key}}: {{val}}
   </li>
   <li ng-repeat="resources in projects.Resources">

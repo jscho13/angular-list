@@ -1,4 +1,4 @@
-angular.module('services', ['ngResource'])
+var services = angular.module('services', ['ngResource'])
   .factory('Project', ['$resource',
     function($resource) {
       return $resource('projects/:id.json', {}, {

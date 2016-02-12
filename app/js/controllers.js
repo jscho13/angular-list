@@ -2,16 +2,20 @@
 
 /* Controllers */
 
-var controllers = angular.module('controllers', []);
+var controllers = angular.module('controllers', ['services']);
 
-  controllers.controller('ProjectController', ['$scope', '$state', 'Project',
-  function($scope, $state, Project) {
+  controllers.controller('ProjectController', ['$scope', 'Project',
+    function($scope, Project) {
 
-    debugger;
-    $scope.data = Project.query();
+      $scope.data = Project.query();
 
-    $scope.addResource = function(selectedProject, resourceName) {
-      var index = _.findIndex($scope.data, selectedProject);
-      $scope.data[index].Resources.push(resourceName);
-    };
-  }]);
+      $scope.addResource = function(selectedProject, resourceName) {
+        var index = _.findIndex($scope.data, selectedProject);
+        $scope.data[index].Resources.push(resourceName);
+      };
+    }]);
+
+  controllers.controller('ProjectDetailController', ['$scope', '$stateParams', 'Project',
+    function($scope, $stateParams, Project) {
+      $scope.data = Project.get({id: $stateParams.id});
+    }]);
