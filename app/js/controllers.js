@@ -1,15 +1,17 @@
 'use strict';
 
 /* Controllers */
-var listControllers = angular.module('listControllers', ['dataModule']);
 
-listControllers.controller('ProjectCtrl', ['$scope', 'dataViewer',
-  function($scope, dataViewer) {
+var controllers = angular.module('controllers', []);
 
-    $scope.data = dataViewer.projectView(data);
+  controllers.controller('ProjectController', ['$scope', '$state', 'Project',
+  function($scope, $state, Project) {
+
+    debugger;
+    $scope.data = Project.query();
 
     $scope.addResource = function(selectedProject, resourceName) {
       var index = _.findIndex($scope.data, selectedProject);
       $scope.data[index].Resources.push(resourceName);
     };
-}]);
+  }]);
