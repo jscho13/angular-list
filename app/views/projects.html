@@ -1,16 +1,13 @@
-<a ui-sref=".resources">Resource Count</a>
+<!-- <a ui-sref=".resources">Resource Count</a> -->
 <div ui-view></div>
-<h1>List of Project</h1>
+<h1>List of Projects</h1>
 <ul ng-repeat="project in data">
-  <a ui-sref="projects.id({id:project.id})">{{project.id}}</a>
+  Project: <a ui-sref="projects.id({id:project.id})">{{project.Project}}</a>
   <button ng-click="deleteProject(project)">Delete Project</button>
-  <li ng-repeat="(key, val) in project" ng-if="key != 'Resources' && key!= 'id'">
-    {{key}}: {{val}}
-  </li>
-  <li ng-repeat="resources in project.Resources">
-    Resource:
-    {{resources}}
-  </li>
+
+  Due: {{project.Due}}</li><br/>
+  Dept: {{project.Dept}}</li><br/>
+  <li ng-repeat="resources in project.Resources">Resource: {{resources}}</li>
   <input value="" type="text" placeholder="Add a Resouce" ng-model="resourceName">
   <button ng-click="addResource(project, resourceName)">Add to resource list</button>
 </ul>
