@@ -13,6 +13,11 @@ var controllers = angular.module('controllers', ['services']);
         var index = _.findIndex($scope.data, selectedProject);
         $scope.data[index].Resources.push(resourceName);
       };
+
+      $scope.deleteProject = function(deleteProject){
+        var index = _.findIndex($scope.data, deleteProject);
+        $scope.data.splice(index, 1);
+      }
     }]);
 
   controllers.controller('ProjectDetailController', ['$scope', '$stateParams', 'Project',
