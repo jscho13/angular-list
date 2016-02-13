@@ -3,7 +3,7 @@
 <h1>List of Projects</h1>
 <ul ng-repeat="project in data">
   Project: <a ui-sref="projects.id({id:project.id})">{{project.Project}}</a>
-  <button ng-click="deleteProject(project)">Delete Project</button>
+  <button ng-click="deleteProject(project)">Delete Project</button><br/>
 
   Due: {{project.Due}}</li><br/>
   Dept: {{project.Dept}}</li><br/>
