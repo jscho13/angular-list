@@ -17,35 +17,35 @@ listApp.config(function($stateProvider, $urlRouterProvider){
         controller: 'ProjectController'
     })
       .state('projects.resources', {
-          url: "projects/resources",
+          url: "/resources",
           templateUrl: "views/projects.resources.html",
           controller: 'ProjectResourceController'
       })
       .state('projects.id', {
-          url: "/projects/:id",
+          url: "/:id",
           templateUrl: "views/projects.id.html",
           controller: 'ProjectDetailController'
       })
-    //
-    // .state('departments', {
-    //     url: "/departments",
-    //     templateUrl: "views/departments.html",
-    //     controller: 'ProjectController'
-    // })
-    //   .state('departments.resources', {
-    //       url: "/resources",
-    //       templateUrl: "views/departments.resources.html",
-    //       controller: 'ProjectController'
-    //   })
-    //
-    // .state('deadlines', {
-    //     url: "/deadlines",
-    //     templateUrl: "views/deadlines.html",
-    //     controller: 'ProjectController'
-    // })
+    .state('deadlines', {
+        url: "/deadlines",
+        templateUrl: "views/deadlines.html",
+        controller: 'DeadlineController'
+    })
+    .state('departments', {
+        url: "/departments",
+        templateUrl: "views/departments.html",
+        controller: 'DepartmentController'
+    })
+
     //   .state('deadlines.resources', {
     //       url: "/resources",
     //       templateUrl: "views/deadlines.resources.html",
+    //       controller: 'ProjectController'
+    //   })
+    //
+    //   .state('departments.resources', {
+    //       url: "/resources",
+    //       templateUrl: "views/departments.resources.html",
     //       controller: 'ProjectController'
     //   })
     //

@@ -1,0 +1,14 @@
+[
+  {"Department": "App Engineering",
+    "Project": ["show-three-lists"]},
+  {"Department": "Marketing",
+    "Project": ["make-stepped-list"]},
+  {"Department": "DBAdmin",
+    "Project": []},
+  {"Department": "SysOps",
+    "Project": ["create-filters"]},
+  {"Department": "Embedded",
+    "Project": ["add-ui-router-rules", "sum-up-subtotals"]},
+  {"Department": "GroceryOps",
+    "Project": []}
+]
