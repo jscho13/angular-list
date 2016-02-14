@@ -17,7 +17,7 @@ var controllers = angular.module('controllers', ['services']);
       $scope.addResource = function(selectedProject, resourceName) {
         var index = _.findIndex($scope.data, selectedProject);
         $scope.data[index].Resources.push(resourceName);
-      };
+      }
 
       $scope.deleteProject = function(deleteProject){
         var index = _.findIndex($scope.data, deleteProject);
@@ -39,6 +39,16 @@ var controllers = angular.module('controllers', ['services']);
           });
         });
       });
+
+      $scope.addResource = function(selectedProject, resourceName) {
+        var index = _.findIndex($scope.data, selectedProject);
+        $scope.data[index].Resources.push(resourceName);
+      }
+
+      $scope.deleteDeadline = function(deleteDeadline){
+        var index = _.findIndex($scope.data, deleteDeadline);
+        $scope.data.splice(index, 1);
+      }
     }]);
 
   controllers.controller('DepartmentController', ['$scope', 'Department', 'Project',
@@ -50,4 +60,15 @@ var controllers = angular.module('controllers', ['services']);
           });
         });
       });
+
+      $scope.addResource = function(selectedProject, resourceName) {
+        var index = _.findIndex($scope.data, selectedProject);
+        $scope.data[index].Resources.push(resourceName);
+      }
+
+      $scope.deleteDepartment = function(deleteDepartment){
+        var index = _.findIndex($scope.data, deleteDepartment);
+        $scope.data.splice(index, 1);
+      }
+
     }]);
