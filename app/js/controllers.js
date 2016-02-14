@@ -6,10 +6,11 @@ var controllers = angular.module('controllers', ['services']);
 
   controllers.controller('ProjectController', ['$scope', 'Project',
     function($scope, Project) {
-
       $scope.data = Project.query(function(rawData) {
-        _(rawData).forEach(function(project, index) {
-          rawData[index] = Project.get({id: project.id});
+        _(rawData).forEach(function(project) {
+          _(project.Project).forEach(function(projectId, index){
+            project.Project[index] = Project.get({id: projectId});
+          });
         });
       });
 
@@ -32,6 +33,17 @@ var controllers = angular.module('controllers', ['services']);
   controllers.controller('DeadlineController', ['$scope', 'Deadline', 'Project',
     function($scope, Deadline, Project) {
       $scope.data = Deadline.query(function(rawData) {
+        _(rawData).forEach(function(project) {
+          _(project.Project).forEach(function(projectId, index){
+            project.Project[index] = Project.get({id: projectId});
+          });
+        });
+      });
+    }]);
+
+  controllers.controller('DepartmentController', ['$scope', 'Department', 'Project',
+    function($scope, Department, Project) {
+      $scope.data = Department.query(function(rawData) {
         _(rawData).forEach(function(project) {
           _(project.Project).forEach(function(projectId, index){
             project.Project[index] = Project.get({id: projectId});

@@ -31,17 +31,18 @@ listApp.config(function($stateProvider, $urlRouterProvider){
         templateUrl: "views/deadlines.html",
         controller: 'DeadlineController'
     })
+    .state('departments', {
+        url: "/departments",
+        templateUrl: "views/departments.html",
+        controller: 'DepartmentController'
+    })
+
     //   .state('deadlines.resources', {
     //       url: "/resources",
     //       templateUrl: "views/deadlines.resources.html",
     //       controller: 'ProjectController'
     //   })
     //
-    // .state('departments', {
-    //     url: "/departments",
-    //     templateUrl: "views/departments.html",
-    //     controller: 'ProjectController'
-    // })
     //   .state('departments.resources', {
     //       url: "/resources",
     //       templateUrl: "views/departments.resources.html",

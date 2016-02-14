@@ -11,4 +11,11 @@ var services = angular.module('services', ['ngResource'])
       return $resource('data/:id.json', {}, {
         query: {method:'GET', params:{id:'deadlines'}, isArray:true}
       });
+    }])
+
+  .factory('Department', ['$resource',
+    function($resource) {
+      return $resource('data/:id.json', {}, {
+        query: {method:'GET', params:{id:'departments'}, isArray:true}
+      });
     }]);
