@@ -2,13 +2,35 @@
 <!-- <a ui-sref=".resources">Resource Count</a> -->
 <div ui-view></div>
 <h1>List of Projects</h1>
+<input value="" type="text" placeholder="Add a Resouce" ng-model="projectName">
+
+<button ng-click="addProject(projectName)">Add Project</button><br/>
 <ul ng-repeat="project in data">
   Project: {{project.ProjectName}}
   <button ng-click="deleteProject(project)">Delete Project</button><br/>
+  <ul ng-repeat="projectInfo in project.Project">
+    <div ng-if="!projectInfo.Due">
+      <input value="" type="text" placeholder="Add a Deadline" ng-model="dueName">
+      <button ng-click="addDue(project, dueName)">Add Deadline</button><br/>
+    </div>
+    <div ng-if="projectInfo.Due">
+      Due: {{projectInfo.Due}}
+      <button ng-click="deleteDue(project)">Delete Deadline</button><br/>
+    </div>
 
-  <ul ng-repeat="project in project.Project">
-    Dept: {{project.Dept}}<br/>
-    <li ng-repeat="resources in project.Resources">Resource: {{resources}}</li>
+    <div ng-if="!projectInfo.Dept">
+      <input value="" type="text" placeholder="Add a Department" ng-model="deptName">
+      <button ng-click="addDept(project, deptName)">Add Department</button><br/>
+    </div>
+    <div ng-if="projectInfo.Dept">
+      Dept: {{projectInfo.Dept}}
+      <button ng-click="deleteDept(project)">Delete Department</button><br/>
+    </div>
+
+    <li ng-repeat="resources in projectInfo.Resources">
+      Resource: {{resources}}
+      <button ng-click="deleteResource(project, resources)">Delete Resource</button><br/>      
+    </li>
     <input value="" type="text" placeholder="Add a Resouce" ng-model="resourceName">
     <button ng-click="addResource(project, resourceName)">Add to resource list</button><br/><br/>
   </ul>

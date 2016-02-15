@@ -1,12 +1,12 @@
 [
   {"ProjectName": "Show Three Lists",
-  "Project": ["show-three-lists"]},
+    "Project": ["show-three-lists"]},
   {"ProjectName": "Make Stepped List",
-  "Project": ["make-stepped-list"]},
+    "Project": ["make-stepped-list"]},
   {"ProjectName": "Sum Up Subtotals",
-  "Project": ["sum-up-subtotals"]},
+    "Project": ["sum-up-subtotals"]},
   {"ProjectName": "Create Filters",
-  "Project": ["create-filters"]},
+    "Project": ["create-filters"]},
   {"ProjectName": "Add UI-Router Rules",
-  "Project": ["add-ui-router-rules"]}
+    "Project": ["add-ui-router-rules"]}
 ]
