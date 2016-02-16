@@ -150,9 +150,8 @@ var controllers = angular.module('controllers', ['services']);
         });
       });
 
-      $scope.addResource = function(selectedProject, resourceName) {
-        var index = _.indexOf($scope.data, selectedProject);
-        $scope.data[index].Project[0].Resources.push(resourceName);
+      $scope.addDepartment = function(deadlineName){
+        $scope.data.push({"Department":deadlineName});
       }
 
       $scope.deleteDepartment = function(deleteDepartment){
@@ -160,4 +159,53 @@ var controllers = angular.module('controllers', ['services']);
         $scope.data.splice(index, 1);
       }
 
+      $scope.addProject = function(selectedDepartment, projectName) {
+        var deadlineIndex = _.indexOf($scope.data, selectedDepartment);
+        if (!("Project" in $scope.data[deadlineIndex])) {
+          $scope.data[deadlineIndex].Project = [{"Project":projectName}];
+        } else {
+          $scope.data[deadlineIndex].Project.push({"Project":projectName});
+        }
+      }
+
+      $scope.deleteProject = function(deadline, project){
+        var deadlineIndex = _.indexOf($scope.data, deadline);
+        var projectList = $scope.data[deadlineIndex].Project;
+        var projectIndex = _.indexOf(projectList, project);
+        projectList.splice(projectIndex, 1);
+      }
+
+      $scope.addDeadline = function(selectedDepartment, selectedProject, deadlineName){
+        var deadlineIndex = _.indexOf($scope.data, selectedDepartment);
+        var projectList = $scope.data[deadlineIndex].Project
+        var projectIndex = _.indexOf(projectList, selectedProject);
+        projectList[projectIndex]["Deadline"] = deadlineName;
+      }
+
+      $scope.deleteDeadline = function(deadline, project){
+        var deadlineIndex = _.indexOf($scope.data, deadline);
+        var projectList = $scope.data[deadlineIndex].Project;
+        var projectIndex = _.indexOf(projectList, project);
+        delete projectList[projectIndex]["Deadline"];
+      }
+
+      $scope.addResource = function(deadline, project, resourceName) {
+        var deadlineIndex = _.indexOf($scope.data, deadline);
+        var projectList = $scope.data[deadlineIndex].Project;
+        var projectIndex = _.indexOf(projectList, project);
+        if (!("Resources" in projectList[projectIndex])) {
+          projectList[projectIndex]["Resources"] = [resourceName];
+        } else {
+          projectList[projectIndex].Resources.push(resourceName);
+        }
+      }
+
+      $scope.deleteResource = function(deadline, project, resourceName) {
+        var deadlineIndex = _.indexOf($scope.data, deadline);
+        var projectList = $scope.data[deadlineIndex].Project;
+        var projectIndex = _.indexOf(projectList, project);
+        var resourceList = projectList[projectIndex].Resources
+        var resourceIndex = _.indexOf(resourceList, resourceName);
+        resourceList.splice(resourceIndex, 1);
+      }
     }]);
