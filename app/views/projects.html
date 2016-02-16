@@ -1,11 +1,10 @@
 <!-- Project: <a ui-sref="projects.id({id:project.id})">{{project.Project}}</a> -->
-<!-- <a ui-sref=".resources">Resource Count</a> -->
-<div ui-view></div>
+<a ui-sref="projectsResources">Resource Count</a>
 <h1>List of Projects</h1>
 <input value="" type="text" placeholder="Add a Project" ng-model="projectName">
 <button ng-click="addProject(projectName)">Add Project</button><br/>
 
-<ul ng-repeat="project in data">
+<ul ng-repeat="project in data | orderBy: orderProp : sortDate : true">
   Project: {{project.ProjectName}}
   <button ng-click="deleteProject(project)">Delete Project</button><br/>
   <ul ng-repeat="projectInfo in project.Project">

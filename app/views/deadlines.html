@@ -1,10 +1,10 @@
 <!-- <a ui-sref=".resources">Resource Count</a> -->
-<div ui-view></div>
+<a ui-sref="deadlinesResources">Resource Count</a>
 <h1>List of Deadlines</h1>
 <input value="" type="text" placeholder="Add a Deadline" ng-model="deadlineName">
 <button ng-click="addDeadline(deadlineName)">Add Deadline</button><br/>
 
-<ul ng-repeat="deadline in data">
+<ul ng-repeat="deadline in data | orderBy: orderProp">
   Deadline: {{deadline.Deadline}}
   <button ng-click="deleteDeadline(deadline)">Delete Deadline</button><br/>
 
