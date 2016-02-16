@@ -16,13 +16,13 @@ listApp.config(function($stateProvider, $urlRouterProvider){
         templateUrl: "views/projects.html",
         controller: 'ProjectController'
     })
-      .state('projects.resources', {
-          url: "/resources",
+      .state('projectsResources', {
+          url: "/projects/resources",
           templateUrl: "views/projects.resources.html",
-          controller: 'ProjectResourceController'
+          controller: 'ProjectController'
       })
-      .state('projects.id', {
-          url: "/:id",
+      .state('projectsID', {
+          url: "/projects/resources/:id",
           templateUrl: "views/projects.id.html",
           controller: 'ProjectDetailController'
       })
@@ -31,26 +31,29 @@ listApp.config(function($stateProvider, $urlRouterProvider){
         templateUrl: "views/deadlines.html",
         controller: 'DeadlineController'
     })
+      .state('deadlinesResources', {
+          url: ".deadlines/resources",
+          templateUrl: "views/deadlines.resources.html",
+          controller: 'DeadlineController'
+      })
+      .state('deadlinesID', {
+          url: "/deadlines/resources/:id",
+          templateUrl: "views/deadlines.id.html",
+          controller: 'DeadlinesDetailController'
+      })
     .state('departments', {
         url: "/departments",
         templateUrl: "views/departments.html",
         controller: 'DepartmentController'
     })
-
-    //   .state('deadlines.resources', {
-    //       url: "/resources",
-    //       templateUrl: "views/deadlines.resources.html",
-    //       controller: 'ProjectController'
-    //   })
-    //
-    //   .state('departments.resources', {
-    //       url: "/resources",
-    //       templateUrl: "views/departments.resources.html",
-    //       controller: 'ProjectController'
-    //   })
-    //
-    // .state('resources', {
-    //     url: "/resources",
-    //     templateUrl: "views/resources.html"
-    // })
+      .state('departmentsResources', {
+          url: "/departments/resources",
+          templateUrl: "views/departments.resources.html",
+          controller: 'DepartmentController'
+      })
+      .state('departmentsID', {
+          url: "/departments/resources/:id",
+          templateUrl: "views/departments.id.html",
+          controller: 'DepartmentDetailController'
+      })
 })

@@ -1,4 +1,34 @@
-<h3>List of Route 2 Things</h3>
-<ul>
-  <li ng-repeat="thing in things">{{thing}}</li>
+<a ui-sref="departments">Back to Departments</a>
+
+<h1>List of Departments</h1>
+<input value="" type="text" placeholder="Add a Department" ng-model="departmentName">
+<button ng-click="addDepartment(departmentName)">Add Department</button><br/>
+
+<ul ng-repeat="department in data | orderBy: orderProp">
+  Dept: {{department.Department}}
+  <button ng-click="deleteDepartment(department)">Delete Department</button><br/>
+
+  <input value="" type="text" placeholder="Add a Project" ng-model="projectName">
+  <button ng-click="addProject(department, projectName)">Add Project</button><br/><br/>
+  <ul ng-repeat="project in department.Project | orderBy: orderPropSec : true">
+    Project: <a ui-sref="projects.id({id:project.id})">{{project.Project}}</a>
+    <button ng-click="deleteProject(department, project)">Delete Project</button><br/>
+
+    <div ng-if="!project.Deadline">
+      <input value="" type="text" placeholder="Add a Deadline" ng-model="deadlineName">
+      <button ng-click="addDeadline(department, project, deadlineName)">Add Deadline</button><br/>
+    </div>
+    <div ng-if="project.Deadline">
+      Due: {{project.Deadline}}
+      <button ng-click="deleteDeadline(department, project)">Delete Deadline</button><br/>
+    </div>
+
+    <div ng-if="project.Resources.length > 0">
+      Total Resources: {{project.Resources.length}}
+      <button ng-click="dropResource(department, project)">Delete Resource</button><br/>
+    </div>
+    <input value="" type="text" placeholder="Add a Resouce" ng-model="resourceName">
+    <button ng-click="addResource(department, project, resourceName)">Add to resource list</button><br/><br/>
+  </ul>
 </ul>
+<hr/>
