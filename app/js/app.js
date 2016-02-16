@@ -22,7 +22,7 @@ listApp.config(function($stateProvider, $urlRouterProvider){
           controller: 'ProjectController'
       })
       .state('projectsID', {
-          url: "/projects/:id",
+          url: "/projects/resources/:id",
           templateUrl: "views/projects.id.html",
           controller: 'ProjectDetailController'
       })
@@ -36,6 +36,11 @@ listApp.config(function($stateProvider, $urlRouterProvider){
           templateUrl: "views/deadlines.resources.html",
           controller: 'DeadlineController'
       })
+      .state('deadlinesID', {
+          url: "/deadlines/resources/:id",
+          templateUrl: "views/deadlines.id.html",
+          controller: 'DeadlinesDetailController'
+      })
     .state('departments', {
         url: "/departments",
         templateUrl: "views/departments.html",
@@ -46,5 +51,9 @@ listApp.config(function($stateProvider, $urlRouterProvider){
           templateUrl: "views/departments.resources.html",
           controller: 'DepartmentController'
       })
-
+      .state('departmentsID', {
+          url: "/departments/resources/:id",
+          templateUrl: "views/departments.id.html",
+          controller: 'DepartmentDetailController'
+      })
 })
