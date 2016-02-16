@@ -4,7 +4,9 @@
 
 var listApp = angular.module('listApp', [
   'ui.router',
-  'controllers'
+  'deadlineController',
+  'departmentController',
+  'projectController'
 ]);
 
 listApp.config(function($stateProvider, $urlRouterProvider){
