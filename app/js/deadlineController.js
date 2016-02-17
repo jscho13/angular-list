@@ -89,3 +89,8 @@ var controllers = angular.module('deadlineController', ['services']);
         resourceList.pop();
       }
     }]);
+
+  controllers.controller('DeadlineDetailController', ['$scope', '$stateParams', 'Project',
+    function($scope, $stateParams, Project) {
+      $scope.data = Project.get({id: $stateParams.id});
+    }]);

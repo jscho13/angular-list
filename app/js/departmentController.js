@@ -84,3 +84,8 @@ var controllers = angular.module('departmentController', ['services']);
         resourceList.pop();
       }
     }]);
+
+  controllers.controller('DepartmentDetailController', ['$scope', '$stateParams', 'Project',
+    function($scope, $stateParams, Project) {
+      $scope.data = Project.get({id: $stateParams.id});
+    }]);
