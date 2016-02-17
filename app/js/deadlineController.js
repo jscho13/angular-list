@@ -14,13 +14,11 @@ var controllers = angular.module('deadlineController', ['services']);
         });
       });
 
-      $scope.orderProp = 'Deadline';
-      $scope.orderPropSec = 'Resources.length';
-
-      $scope.sortDates = function(stringDate) {
-        var date = new Date(stringDate);
-        return date;
+      $scope.orderByDate = function(deadline) {
+          var date = new Date(deadline.Deadline);
+          return date;
       };
+      $scope.orderPropSec = 'Resources.length';
 
       $scope.addDeadline = function(deadlineName){
         $scope.data.push({"Deadline":deadlineName});
@@ -47,10 +45,10 @@ var controllers = angular.module('deadlineController', ['services']);
         projectList.splice(projectIndex, 1);
       }
 
-      $scope.addDept = function(selectedDeadline, selectedProject, deptName){
-        var deadlineIndex = _.indexOf($scope.data, selectedDeadline);
+      $scope.addDept = function(deadline, project, deptName){
+        var deadlineIndex = _.indexOf($scope.data, deadline);
         var projectList = $scope.data[deadlineIndex].Project
-        var projectIndex = _.indexOf(projectList, selectedProject);
+        var projectIndex = _.indexOf(projectList, project);
         projectList[projectIndex]["Dept"] = deptName;
       }
 

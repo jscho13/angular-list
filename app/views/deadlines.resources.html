@@ -15,12 +15,12 @@
     <button ng-click="deleteProject(deadline, project)">Delete Project</button><br/>
 
     <div ng-if="!project.Dept">
-      <input value="" type="text" placeholder="Add a Department" ng-model="departmentName">
-      <button ng-click="addDepartment(deadline, project, deadlineName)">Add Department</button><br/>
+      <input value="" type="text" placeholder="Add a Department" ng-model="deptName">
+      <button ng-click="addDept(deadline, project, deptName)">Add Department</button><br/>
     </div>
     <div ng-if="project.Dept">
-      <a ui-sref="deadlineID({id:project.ID})">Dept: {{project.Deadline}}</a>
-      <button ng-click="deleteDepartment(deadline, project)">Delete Department</button><br/>
+      <a ui-sref="deadlineID({id:project.ID})">Dept: {{project.Dept}}</a>
+      <button ng-click="deleteDept(deadline, project)">Delete Department</button><br/>
     </div>
 
     <div ng-if="project.Resources.length > 0">
