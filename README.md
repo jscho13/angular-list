@@ -2,7 +2,7 @@
 
 git clone https://github.com/jscho13/angular-list.git
 
-#### Then
+#### Install all dependencies and start the server with
 
 npm start
 
