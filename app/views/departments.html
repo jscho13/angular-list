@@ -1,5 +1,4 @@
-<!-- <a ui-sref=".resources">Resource Count</a> -->
-<a ui-sref="departmentsResources">Resource Count</a>
+<a ui-sref="departmentsResources">Resource View</a>
 <h1>List of Departments</h1>
 <input value="" type="text" placeholder="Add a Department" ng-model="departmentName">
 <button ng-click="addDepartment(departmentName)">Add Department</button><br/>
@@ -23,7 +22,7 @@
       <button ng-click="deleteDeadline(department, project)">Delete Deadline</button><br/>
     </div>
 
-    <li ng-repeat="resources in project.Resources">
+    <li ng-repeat="resources in project.Resources track by $index">
       Resource: {{resources}}
       <button ng-click="deleteResource(department, project, resources)">Delete Resource</button><br/>
     </li>

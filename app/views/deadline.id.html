@@ -1,0 +1,12 @@
+<a ui-sref="deadlinesResources">Back to Deadline Resource View</a>
+
+  <h1>Single-Project View</h1>
+
+  Project: {{data.Project}}</br>
+  Due: {{data.Deadline}}</br>
+  Dept: {{data.Dept}}</br>
+  <ul>
+    <li ng-repeat="resource in data.Resources">
+      Resource: {{resource}}
+    </li>
+  </ul>

@@ -11,20 +11,20 @@
   <input value="" type="text" placeholder="Add a Project" ng-model="projectName">
   <button ng-click="addProject(deadline, projectName)">Add Project</button><br/><br/>
   <ul ng-repeat="project in deadline.Project | orderBy: orderPropSec : true">
-    Project: <a ui-sref="projects.id({id:project.id})">{{project.Project}}</a>
+    Project: {{project.Project}}
     <button ng-click="deleteProject(deadline, project)">Delete Project</button><br/>
 
-    <div ng-if="!project.Department">
-      <input value="" type="text" placeholder="Add a Department" ng-model="departmentName">
-      <button ng-click="addDepartment(deadline, project, deadlineName)">Add Department</button><br/>
+    <div ng-if="!project.Dept">
+      <input value="" type="text" placeholder="Add a Department" ng-model="deptName">
+      <button ng-click="addDept(deadline, project, deptName)">Add Department</button><br/>
     </div>
-    <div ng-if="project.Department">
-      Dept: {{project.Deadline}}
-      <button ng-click="deleteDepartment(deadline, project)">Delete Department</button><br/>
+    <div ng-if="project.Dept">
+      <a ui-sref="deadlineID({id:project.ID})">Dept: {{project.Dept}}</a>
+      <button ng-click="deleteDept(deadline, project)">Delete Department</button><br/>
     </div>
 
     <div ng-if="project.Resources.length > 0">
-      Total Resources: {{project.Resources.length}}
+      <a ui-sref="deadlineID({id:project.ID})">Total Resources: {{project.Resources.length}}</a>
       <button ng-click="dropResource(deadline, project)">Delete Resource</button><br/>
     </div>
     <input value="" type="text" placeholder="Add a Resouce" ng-model="resourceName">
