@@ -87,5 +87,10 @@ var controllers = angular.module('departmentController', ['services']);
 
   controllers.controller('DepartmentDetailController', ['$scope', '$stateParams', 'Project',
     function($scope, $stateParams, Project) {
-      $scope.data = Project.get({id: $stateParams.id});
+      $scope.data = Project.get({id: $stateParams.id}, function(successResult){},
+      function(errorResult){
+        if(errorResult.status === 404) {
+          alert("This project does not exist! Since there is no persistent data, the link you clicked is referring to an unknown id. :) ");
+        }
+      });
     }]);
